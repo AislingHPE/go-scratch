@@ -1,5 +1,8 @@
 {
     "$schema": "https://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-limited-nesting.json",
+    "jim":{
+        "a":"n"
+    },    
     "properties": {
         "abc" : {
             "type": "object",

@@ -5,9 +5,6 @@
     "definitions": {
         "schemaNoNesting": {
             "$ref" : "#",
-            "additionalProperties": {
-                "not" : {"required":["properties"]}
-            },
             "properties": {
                 "items": {
                     "$ref":"#/definitions/schemaWithNesting",
@@ -33,7 +30,7 @@
                     "default": {}
                 },
                 "items": {
-                    "$ref":"#/definitions/schemaWithNesting",
+                    "$ref": "#/definitions/schemaWithNesting",
                     "default": {}
                 },
                 "allOf": { "$ref": "#/definitions/schemaArray" },
@@ -74,8 +71,8 @@
             "uniqueItems": true
         }
     },
-    "additionalProperties": {"not":{"required":["jim"]}},
     "type": "object",
+    "additionalProperties": false,
     "properties": {
         "id": {
             "type": "string"
