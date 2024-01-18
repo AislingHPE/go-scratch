@@ -74,6 +74,7 @@
             "uniqueItems": true
         }
     },
+    "additionalProperties": {"not":{"required":["jim"]}},
     "type": "object",
     "properties": {
         "id": {
