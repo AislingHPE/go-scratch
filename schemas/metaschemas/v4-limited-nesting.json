@@ -10,15 +10,16 @@
             },
             "properties": {
                 "items": {
-                    "$ref":"#/schemaWithNesting",
+                    "$ref":"#/definitions/schemaWithNesting",
                     "default": {}
                 },
                 "allOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
                 "anyOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
                 "oneOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
+                "not": { "$ref": "#/definitions/schemaNoNesting" },
                 "definitions": {
                     "type": "object",
-                    "additionalProperties": { "$ref": "#/schemaNoNesting" },
+                    "additionalProperties": { "$ref": "#/definitions/schemaNoNesting" },
                     "default": {}
                 }
             }
@@ -28,19 +29,20 @@
             "properties": {
                 "properties": {
                     "type": "object",
-                    "additionalProperties": { "$ref": "#/schemaNoNesting" },
+                    "additionalProperties": { "$ref": "#/definitions/schemaNoNesting" },
                     "default": {}
                 },
                 "items": {
-                    "$ref":"#/schemaWithNesting",
+                    "$ref":"#/definitions/schemaWithNesting",
                     "default": {}
                 },
                 "allOf": { "$ref": "#/definitions/schemaArray" },
                 "anyOf": { "$ref": "#/definitions/schemaArray" },
                 "oneOf": { "$ref": "#/definitions/schemaArray" },
+                "not": { "$ref": "#/definitions/schemaWithNesting" },
                 "definitions": {
                     "type": "object",
-                    "additionalProperties": { "$ref": "#/schemaWithNesting" },
+                    "additionalProperties": { "$ref": "#/definitions/schemaWithNesting" },
                     "default": {}
                 }
             }
@@ -48,12 +50,12 @@
         "schemaArray": {
             "type": "array",
             "minItems": 1,
-            "items": { "$ref": "#/schemaWithNesting" }
+            "items": { "$ref": "#/definitions/schemaWithNesting" }
         },
         "schemaArrayNoNesting": {
             "type": "array",
             "minItems": 1,
-            "items": { "$ref": "#/schemaNoNesting" }
+            "items": { "$ref": "#/definitions/schemaNoNesting" }
         },
         "positiveInteger": {
             "type": "integer",
@@ -153,8 +155,7 @@
                 }
             ]
         },
-        "format": { "type": "string" },
-        "not": { "$ref": "#" }
+        "format": { "type": "string" }
     },
     "dependencies": {
         "exclusiveMaximum": [ "maximum" ],
