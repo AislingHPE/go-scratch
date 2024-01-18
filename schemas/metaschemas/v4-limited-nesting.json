@@ -91,7 +91,89 @@
             },
             "default": {}
         },
-        "schemaNoNesting": {
+        "schemaLevel0": {
+            "type": "object",
+            "properties": {
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": { 
+                        "allOf": [
+                            {"$ref": "#/definitions/schemaLevel1"},
+                            {"$ref": "#/definitions/coreSchema"}
+                        ]
+                    },
+                    "default": {}
+                },
+                "items": {
+                    "allOf": [
+                        {"$ref": "#/definitions/schemaLevel0"},
+                        {"$ref": "#/definitions/coreSchema"}
+                    ],
+                    "default": {}
+                },
+                "allOf": { "$ref": "#/definitions/schemaArray0" },
+                "anyOf": { "$ref": "#/definitions/schemaArray0" },
+                "oneOf": { "$ref": "#/definitions/schemaArray0" },
+                "not": {     
+                    "allOf": [
+                        {"$ref": "#/definitions/schemaLevel0"},
+                        {"$ref": "#/definitions/coreSchema"}
+                    ]
+                },
+                "definitions": {
+                    "type": "object",
+                    "additionalProperties": { 
+                        "allOf": [
+                            {"$ref": "#/definitions/schemaLevel0"},
+                            {"$ref": "#/definitions/coreSchema"}
+                        ]
+                    },
+                    "default": {}
+                }
+            }
+        },
+        "schemaLevel1": {
+            "type": "object",
+            "properties": {
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": { 
+                        "allOf": [
+                            {"$ref": "#/definitions/schemaLevel2"},
+                            {"$ref": "#/definitions/coreSchema"}
+                        ]
+                    },
+                    "default": {}
+                },
+                "items": {
+                    "allOf": [
+                        {"$ref": "#/definitions/schemaLevel1"},
+                        {"$ref": "#/definitions/coreSchema"}
+                    ],
+                    "default": {}
+                },
+                "allOf": { "$ref": "#/definitions/schemaArray1" },
+                "anyOf": { "$ref": "#/definitions/schemaArray1" },
+                "oneOf": { "$ref": "#/definitions/schemaArray1" },
+                "not": {     
+                    "allOf": [
+                        {"$ref": "#/definitions/schemaLevel1"},
+                        {"$ref": "#/definitions/coreSchema"}
+                    ]
+                },
+                "definitions": {
+                    "type": "object",
+                    "additionalProperties": { 
+                        "allOf": [
+                            {"$ref": "#/definitions/schemaLevel1"},
+                            {"$ref": "#/definitions/coreSchema"}
+                        ]
+                    },
+                    "default": {}
+                }
+            }
+        },
+        "schemaLevel2": {
             "type": "object",
             "properties": {
                 "properties": {
@@ -99,17 +181,17 @@
                 },
                 "items": {
                     "allOf": [
-                        {"$ref": "#/definitions/schemaWithNesting"},
+                        {"$ref": "#/definitions/schemaLevel2"},
                         {"$ref": "#/definitions/coreSchema"}
                     ],
                     "default": {}
                 },
-                "allOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
-                "anyOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
-                "oneOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
+                "allOf": { "$ref": "#/definitions/schemaArray2" },
+                "anyOf": { "$ref": "#/definitions/schemaArray2" },
+                "oneOf": { "$ref": "#/definitions/schemaArray2" },
                 "not": { 
                     "allOf": [
-                        {"$ref": "#/definitions/schemaNoNesting"},
+                        {"$ref": "#/definitions/schemaLevel2"},
                         {"$ref": "#/definitions/coreSchema"}
                     ]
                 },
@@ -117,7 +199,7 @@
                     "type": "object",
                     "additionalProperties": { 
                         "allOf": [
-                            {"$ref": "#/definitions/schemaWithNesting"},
+                            {"$ref": "#/definitions/schemaLevel2"},
                             {"$ref": "#/definitions/coreSchema"}
                         ]
                     },
@@ -125,63 +207,32 @@
                 }
             }
         },
-        "schemaWithNesting": {
-            "type": "object",
-            "properties": {
-                "properties": {
-                    "type": "object",
-                    "additionalProperties": { 
-                        "allOf": [
-                            {"$ref": "#/definitions/schemaNoNesting"},
-                            {"$ref": "#/definitions/coreSchema"}
-                        ]
-                    },
-                    "default": {}
-                },
-                "items": {
-                    "allOf": [
-                        {"$ref": "#/definitions/schemaWithNesting"},
-                        {"$ref": "#/definitions/coreSchema"}
-                    ],
-                    "default": {}
-                },
-                "allOf": { "$ref": "#/definitions/schemaArray" },
-                "anyOf": { "$ref": "#/definitions/schemaArray" },
-                "oneOf": { "$ref": "#/definitions/schemaArray" },
-                "not": {     
-                    "allOf": [
-                        {"$ref": "#/definitions/schemaWithNesting"},
-                        {"$ref": "#/definitions/coreSchema"}
-                    ]
-                },
-                "definitions": {
-                    "type": "object",
-                    "additionalProperties": { 
-                        "allOf": [
-                            {"$ref": "#/definitions/schemaWithNesting"},
-                            {"$ref": "#/definitions/coreSchema"}
-                        ]
-                    },
-                    "default": {}
-                }
-            }
-        },
-        "schemaArray": {
+        "schemaArray0": {
             "type": "array",
             "minItems": 1,
             "items": {
                 "allOf": [
-                    {"$ref": "#/definitions/schemaWithNesting"},
+                    {"$ref": "#/definitions/schemaLevel0"},
                     {"$ref": "#/definitions/coreSchema"}
                 ]
             }
         },
-        "schemaArrayNoNesting": {
+        "schemaArray1": {
             "type": "array",
             "minItems": 1,
             "items": {
                 "allOf": [
-                    {"$ref": "#/definitions/schemaNoNesting"},
+                    {"$ref": "#/definitions/schemaLevel1"},
+                    {"$ref": "#/definitions/coreSchema"}
+                ]
+            }
+        },
+        "schemaArray2": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "allOf": [
+                    {"$ref": "#/definitions/schemaLevel2"},
                     {"$ref": "#/definitions/coreSchema"}
                 ]
             }
@@ -204,7 +255,7 @@
         }
     },
     "allOf": [
-        {"$ref": "#/definitions/schemaWithNesting"},
+        {"$ref": "#/definitions/schemaLevel0"},
         {"$ref": "#/definitions/coreSchema"}
     ],
     "unevaluatedProperties": false
