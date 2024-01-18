@@ -2,6 +2,7 @@
     "$schema": "https://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-limited-nesting.json",  
     "enum": [22,2],
     "items":5,
+    
     "properties": {
         "abc" : {
             "type": "object",
@@ -9,7 +10,8 @@
                 "def": { "type": "string" },
                 "ghi": {
                     "type":"object",
-                    "properties": {
+                    "properties": 4,
+                    "prooperties": {
                         "jkl" : {
                             "type": "object",
                             "properties": {
