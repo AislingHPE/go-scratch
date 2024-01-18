@@ -1,6 +1,6 @@
 {
     "id": "https://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-limited-nesting.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "http://json-schema.org/2019-09/schema#",
     "description": "Core schema meta-schema",
     "definitions": {
         "coreSchema": {
@@ -21,7 +21,8 @@
                 "default": {},
                 "multipleOf": {
                     "type": "number",
-                    "exclusiveMinimum": 0
+                    "minimum": 0,
+                    "exclusiveMinimum": true
                 },
                 "maximum": {
                     "type": "number"
@@ -72,7 +73,7 @@
                     "uniqueItems": true
                 },
                 "type": {
-                    "allOf": [
+                    "anyOf": [
                         { "$ref": "#/definitions/simpleTypes" },
                         {
                             "type": "array",
@@ -94,7 +95,6 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "id": true, "$schema": true, "title": true, "description": true, "default": true, "multipleOf": true, "maximum": true, "exclusiveMaximum": true, "minimum": true, "exclusiveMinimum": true, "maxLength": true, "minLength": true, "pattern": true, "maxItems": true, "minItems": true, "uniqueItems": true, "maxProperties": true, "minProperties": true, "required": true, "patternProperties": true, "dependencies": true, "enum": true, "type": true, "format": true,
                 "items": {
                     "allOf": [
                         {"$ref": "#/definitions/schemaWithNesting"},
@@ -204,5 +204,6 @@
     "allOf": [
         {"$ref": "#/definitions/schemaWithNesting"},
         {"$ref": "#/definitions/coreSchema"}
-    ]
+    ],
+    "unevaluatedProperties": false
 }
