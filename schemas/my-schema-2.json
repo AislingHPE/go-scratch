@@ -1,0 +1,9 @@
+{
+    "$schema": "https://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4.json",
+    "properties": {
+        "abc" : {
+            "type": "string",
+            "enum": [1,2,3,4]
+        }
+    }
+}

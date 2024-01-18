@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4.json",
+    "$schema": "https://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-string-enum-only.json",
     "properties": {
         "abc" : {
             "type": "string",
