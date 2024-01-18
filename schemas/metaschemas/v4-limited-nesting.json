@@ -1,48 +1,14 @@
 {
     "id": "https://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-limited-nesting.json",
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "description": "Core schema meta-schema",
     "definitions": {
         "schemaNoNesting": {
             "$ref" : "#",
-            "properties": {
-                "items": {
-                    "$ref":"#/definitions/schemaWithNesting",
-                    "default": {}
-                },
-                "allOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
-                "anyOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
-                "oneOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
-                "not": { "$ref": "#/definitions/schemaNoNesting" },
-                "definitions": {
-                    "type": "object",
-                    "additionalProperties": { "$ref": "#/definitions/schemaNoNesting" },
-                    "default": {}
-                }
-            }
+            "nesting": false
         },
         "schemaWithNesting": {
-            "$ref" : "#",
-            "properties": {
-                "properties": {
-                    "type": "object",
-                    "additionalProperties": { "$ref": "#/definitions/schemaNoNesting" },
-                    "default": {}
-                },
-                "items": {
-                    "$ref": "#/definitions/schemaWithNesting",
-                    "default": {}
-                },
-                "allOf": { "$ref": "#/definitions/schemaArray" },
-                "anyOf": { "$ref": "#/definitions/schemaArray" },
-                "oneOf": { "$ref": "#/definitions/schemaArray" },
-                "not": { "$ref": "#/definitions/schemaWithNesting" },
-                "definitions": {
-                    "type": "object",
-                    "additionalProperties": { "$ref": "#/definitions/schemaWithNesting" },
-                    "default": {}
-                }
-            }
+            "$ref" : "#"
         },
         "schemaArray": {
             "type": "array",
@@ -73,6 +39,49 @@
     },
     "type": "object",
     "additionalProperties": false,
+    "nesting": true,
+    "if": {
+        "nesting": { "const": true }
+    }, 
+    "then": {
+        "properties": {
+            "properties": {
+                "type": "object",
+                "additionalProperties": { "$ref": "#/definitions/schemaNoNesting" },
+                "default": {}
+            },
+            "items": {
+                "$ref": "#/definitions/schemaWithNesting",
+                "default": {}
+            },
+            "allOf": { "$ref": "#/definitions/schemaArray" },
+            "anyOf": { "$ref": "#/definitions/schemaArray" },
+            "oneOf": { "$ref": "#/definitions/schemaArray" },
+            "not": { "$ref": "#/definitions/schemaWithNesting" },
+            "definitions": {
+                "type": "object",
+                "additionalProperties": { "$ref": "#/definitions/schemaWithNesting" },
+                "default": {}
+            }
+        }
+    },
+    "else": {
+        "properties": {
+            "items": {
+                "$ref":"#/definitions/schemaWithNesting",
+                "default": {}
+            },
+            "allOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
+            "anyOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
+            "oneOf": { "$ref": "#/definitions/schemaArrayNoNesting" },
+            "not": { "$ref": "#/definitions/schemaNoNesting" },
+            "definitions": {
+                "type": "object",
+                "additionalProperties": { "$ref": "#/definitions/schemaNoNesting" },
+                "default": {}
+            }
+        }
+    },
     "properties": {
         "id": {
             "type": "string"
@@ -89,8 +98,7 @@
         "default": {},
         "multipleOf": {
             "type": "number",
-            "minimum": 0,
-            "exclusiveMinimum": true
+            "exclusiveMinimum": 0
         },
         "maximum": {
             "type": "number"
