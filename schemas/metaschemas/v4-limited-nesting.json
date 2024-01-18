@@ -110,8 +110,7 @@
                     "additionalProperties": { "$ref": "#/definitions/schemaNoNesting" },
                     "default": {}
                 }
-            },
-            "additionalProperties": false
+            }
         },
         "schemaWithNesting": {
             "$ref" : "#/definitions/coreSchema",
@@ -134,8 +133,7 @@
                     "type": "object",
                     "additionalProperties": { "$ref": "#/definitions/schemaWithNesting" },
                     "default": {}
-                },
-                "additionalProperties": false
+                }
             }
         },
         "schemaArray": {
@@ -165,5 +163,6 @@
             "uniqueItems": true
         }
     },
-    "$ref": "#/definitions/schemaWithNesting"
+    "$ref": "#/definitions/schemaWithNesting",
+    "additionalProperties": false
 }

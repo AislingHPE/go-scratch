@@ -10,8 +10,7 @@
                 "def": { "type": "string" },
                 "ghi": {
                     "type":"object",
-                    "properties": 4,
-                    "prooperties": {
+                    "properties": {
                         "jkl" : {
                             "type": "object",
                             "properties": {
