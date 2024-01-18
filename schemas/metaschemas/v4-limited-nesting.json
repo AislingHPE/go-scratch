@@ -93,8 +93,10 @@
         },
         "schemaNoNesting": {
             "type": "object",
-            "additionalProperties": false,
             "properties": {
+                "properties": {
+                    "type":"null"
+                },
                 "items": {
                     "allOf": [
                         {"$ref": "#/definitions/schemaWithNesting"},

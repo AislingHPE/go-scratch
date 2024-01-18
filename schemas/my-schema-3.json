@@ -6,6 +6,8 @@
     "properties": {
         "abc" : {
             "type": "object",
+            "enum": 5,
+            "items":{},
             "properties": {
                 "def": { "type": "string" },
                 "ghi": {
