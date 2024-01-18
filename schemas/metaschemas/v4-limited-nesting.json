@@ -38,8 +38,6 @@
         }
     },
     "type": "object",
-    "additionalProperties": false,
-    "nesting": true,
     "if": {
         "nesting": { "const": true }
     }, 
@@ -67,6 +65,9 @@
     },
     "else": {
         "properties": {
+            "properties": {
+                "type":"null"
+            },
             "items": {
                 "$ref":"#/definitions/schemaWithNesting",
                 "default": {}
