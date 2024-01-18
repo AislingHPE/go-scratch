@@ -93,7 +93,6 @@
         "schemaNoNesting": {
             "$ref" : "#/definitions/coreSchema",
             "type": "object",
-            "additionalProperties": false,
             "properties": {
                 "properties": {
                     "type":"null"
@@ -111,12 +110,12 @@
                     "additionalProperties": { "$ref": "#/definitions/schemaNoNesting" },
                     "default": {}
                 }
-            }
+            },
+            "additionalProperties": false
         },
         "schemaWithNesting": {
             "$ref" : "#/definitions/coreSchema",
             "type": "object",
-            "additionalProperties": false,
             "properties": {
                 "properties": {
                     "type": "object",
@@ -135,7 +134,8 @@
                     "type": "object",
                     "additionalProperties": { "$ref": "#/definitions/schemaWithNesting" },
                     "default": {}
-                }
+                },
+                "additionalProperties": false
             }
         },
         "schemaArray": {
