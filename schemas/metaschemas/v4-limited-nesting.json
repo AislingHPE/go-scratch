@@ -1,21 +1,10 @@
 {
     "id": "https://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-limited-nesting.json",
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "http://json-schema.org/2019-09/schema#",
     "description": "Core schema meta-schema",
     "definitions": {
         "coreSchema": {
             "type": "object",
-            "additionalProperties": {
-                "enum": [
-                    "properties",
-                    "items",
-                    "not",
-                    "definitions",
-                    "anyOf",
-                    "allOf",
-                    "oneOf"
-                ]
-            },
             "properties": {
                 "id": {
                     "type": "string"
@@ -103,9 +92,6 @@
         },
         "schemaNoNesting": {
             "type": "object",
-            "additionalProperties": {"enum":[
-                "id", "$schema", "title", "description", "default", "multipleOf", "maximum", "exclusiveMaximum", "minimum", "exclusiveMinimum", "maxLength", "minLength", "pattern", "maxItems", "minItems", "uniqueItems", "maxProperties", "minProperties", "required", "patternProperties", "dependencies", "enum", "type", "format"
-            ]},
             "properties": {
                 "items": {
                     "allOf": [
@@ -137,9 +123,6 @@
         },
         "schemaWithNesting": {
             "type": "object",
-            "additionalProperties": {"enum":[
-                "id", "$schema", "title", "description", "default", "multipleOf", "maximum", "exclusiveMaximum", "minimum", "exclusiveMinimum", "maxLength", "minLength", "pattern", "maxItems", "minItems", "uniqueItems", "maxProperties", "minProperties", "required", "patternProperties", "dependencies", "enum", "type", "format"
-            ]},
             "properties": {
                 "properties": {
                     "type": "object",
@@ -219,5 +202,6 @@
     "allOf": [
         {"$ref": "#/definitions/schemaWithNesting"},
         {"$ref": "#/definitions/coreSchema"}
-    ]
+    ],
+    "unevaluatedProperties": false
 }

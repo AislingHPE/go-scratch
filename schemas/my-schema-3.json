@@ -1,6 +1,6 @@
 {
     "$schema": "http://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-limited-nesting.json",  
-    "enum": 423,
+    "enum": [423],
     "items": ["s"],
     
     "properties": {
