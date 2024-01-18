@@ -43,7 +43,6 @@
                     "type": "string",
                     "format": "regex"
                 },
-
                 "maxItems": { "$ref": "#/definitions/positiveInteger" },
                 "minItems": { "$ref": "#/definitions/positiveIntegerDefault0" },
                 "uniqueItems": {
@@ -53,7 +52,6 @@
                 "maxProperties": { "$ref": "#/definitions/positiveInteger" },
                 "minProperties": { "$ref": "#/definitions/positiveIntegerDefault0" },
                 "required": { "$ref": "#/definitions/stringArray" },
-
                 "patternProperties": {
                     "type": "object",
                     "additionalProperties": { "$ref": "#" },
@@ -94,6 +92,8 @@
         },
         "schemaNoNesting": {
             "$ref" : "#/definitions/coreSchema",
+            "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "properties": {
                     "type":"null"
@@ -115,6 +115,8 @@
         },
         "schemaWithNesting": {
             "$ref" : "#/definitions/coreSchema",
+            "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "properties": {
                     "type": "object",
@@ -163,5 +165,5 @@
             "uniqueItems": true
         }
     },
-    "$ref":"#/definitions/schemaWithNesting"
+    "$ref": "#/definitions/schemaWithNesting"
 }
