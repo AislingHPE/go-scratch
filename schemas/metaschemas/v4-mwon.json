@@ -51,8 +51,8 @@
             },
             "then": {
                 "oneOf": [
-                    {"properties": {"items": {"type":"string"}}},
-                    {"properties": {"items": {"type":"integer"}}}
+                    {"properties": {"items": {"required":["type"], "properties": {"type": {"const": "string"}}}}},
+                    {"properties": {"items": {"required":["type"], "properties": {"type": {"const": "integer"}}}}}
                 ]
             },
             "default": {}
