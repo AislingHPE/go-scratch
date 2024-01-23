@@ -1,25 +1,14 @@
 {
     "$schema": "http://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-mwon.json",  
-    "enum": [423],
-    "items": ["s"],
     
     "properties": {
+        "def": {
+            "type": "string",
+            "enum": ["abc","de"]
+        },
         "abc" : {
-            "type": "object",
-            "properties": {
-                "def": { "type": "string" },
-                "ghi": {
-                    "type":"object",
-                    "properties": {
-                        "jkl" : {
-                            "type": "object",
-                            "properties": {
-                                "mno": { "type": "string" }
-                            }
-                        }
-                    }
-                }
-            }
+            "type": "array",
+            "items": {"type":"string"}
         }
     }
 }
