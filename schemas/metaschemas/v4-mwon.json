@@ -5,7 +5,9 @@
     "definitions": {
         "coreSchema": {
             "type": "object",
+            "additionalProperties": true,
             "properties": {
+                "properties": {},
                 "id": {
                     "type": "string"
                 },
