@@ -1,7 +1,7 @@
 {
     "id": "https://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-limited-nesting.json",
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "Core schema meta-schema",
+    "description": "Meta schema for genesis template schemas",
     "definitions": {
         "coreSchema": {
             "type": "object",
