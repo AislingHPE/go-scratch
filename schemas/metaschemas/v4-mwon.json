@@ -40,7 +40,7 @@
                     "uniqueItems": true
                 },
                 "type": {
-                    "$ref": "#/definitions/supportedTypes"
+                    "$ref": "#/definitions/simpleTypes"
                 },
                 "format": { "type": "string" }
             },
