@@ -189,5 +189,12 @@
         {
             "$ref": "#/definitions/coreSchema"
         }
-    ]
+    ],
+    "required": ["additionalProperties"],
+    "properties": {
+        "additionalProperties": {
+            "type": "boolean",
+            "const": false
+        }
+    }
 }

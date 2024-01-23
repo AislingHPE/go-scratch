@@ -1,6 +1,8 @@
 {
     "$schema": "http://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-mwon.json",  
-    
+    "required": [
+        ""
+    ],
     "properties": {
         "def": {
             "type": "string",
