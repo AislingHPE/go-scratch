@@ -27,13 +27,19 @@
                 "minimum": {
                     "type": "number"
                 },
-                "maxLength": { "$ref": "#/definitions/positiveInteger" },
-                "minLength": { "$ref": "#/definitions/positiveIntegerDefault0" },
+                "maxLength": {
+                    "$ref": "#/definitions/positiveInteger"
+                },
+                "minLength": {
+                    "$ref": "#/definitions/positiveIntegerDefault0"
+                },
                 "pattern": {
                     "type": "string",
                     "format": "regex"
                 },
-                "required": { "$ref": "#/definitions/stringArray" },
+                "required": {
+                    "$ref": "#/definitions/stringArray"
+                },
                 "enum": {
                     "type": "array",
                     "minItems": 1,
@@ -42,17 +48,53 @@
                 "type": {
                     "$ref": "#/definitions/simpleTypes"
                 },
-                "format": { "type": "string" }
+                "format": {
+                    "type": "string"
+                }
             },
             "if": {
                 "properties": {
-                    "type": {"const": "array"}
+                    "type": {
+                        "const": "array"
+                    }
                 }
             },
             "then": {
                 "oneOf": [
-                    {"properties": {"items": {"required":["type"], "properties": {"type": {"const": "string"}}}}},
-                    {"properties": {"items": {"required":["type"], "properties": {"type": {"const": "integer"}}}}}
+                    {
+                        "required": [
+                            "items"
+                        ],
+                        "properties": {
+                            "items": {
+                                "required": [
+                                    "type"
+                                ],
+                                "properties": {
+                                    "type": {
+                                        "const": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "required": [
+                            "items"
+                        ],
+                        "properties": {
+                            "items": {
+                                "required": [
+                                    "type"
+                                ],
+                                "properties": {
+                                    "type": {
+                                        "const": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 ]
             },
             "default": {}
@@ -62,10 +104,14 @@
             "properties": {
                 "properties": {
                     "type": "object",
-                    "additionalProperties": { 
+                    "additionalProperties": {
                         "allOf": [
-                            {"$ref": "#/definitions/schemaLevel2"},
-                            {"$ref": "#/definitions/coreSchema"}
+                            {
+                                "$ref": "#/definitions/schemaLevel2"
+                            },
+                            {
+                                "$ref": "#/definitions/coreSchema"
+                            }
                         ]
                     },
                     "default": {}
@@ -76,7 +122,7 @@
             "type": "object",
             "properties": {
                 "properties": {
-                    "type":"null"
+                    "type": "null"
                 }
             }
         },
@@ -85,8 +131,12 @@
             "minItems": 1,
             "items": {
                 "allOf": [
-                    {"$ref": "#/definitions/schemaLevel1"},
-                    {"$ref": "#/definitions/coreSchema"}
+                    {
+                        "$ref": "#/definitions/schemaLevel1"
+                    },
+                    {
+                        "$ref": "#/definitions/coreSchema"
+                    }
                 ]
             }
         },
@@ -95,8 +145,12 @@
             "minItems": 1,
             "items": {
                 "allOf": [
-                    {"$ref": "#/definitions/schemaLevel2"},
-                    {"$ref": "#/definitions/coreSchema"}
+                    {
+                        "$ref": "#/definitions/schemaLevel2"
+                    },
+                    {
+                        "$ref": "#/definitions/coreSchema"
+                    }
                 ]
             }
         },
@@ -105,20 +159,39 @@
             "minimum": 0
         },
         "positiveIntegerDefault0": {
-            "allOf": [ { "$ref": "#/definitions/positiveInteger" }, { "default": 0 } ]
+            "allOf": [
+                {
+                    "$ref": "#/definitions/positiveInteger"
+                },
+                {
+                    "default": 0
+                }
+            ]
         },
         "simpleTypes": {
-            "enum": [ "array", "boolean", "integer", "null", "string" ]
+            "enum": [
+                "array",
+                "boolean",
+                "integer",
+                "null",
+                "string"
+            ]
         },
         "stringArray": {
             "type": "array",
-            "items": { "type": "string" },
+            "items": {
+                "type": "string"
+            },
             "minItems": 1,
             "uniqueItems": true
         }
     },
     "allOf": [
-        {"$ref": "#/definitions/schemaLevel1"},
-        {"$ref": "#/definitions/coreSchema"}
+        {
+            "$ref": "#/definitions/schemaLevel1"
+        },
+        {
+            "$ref": "#/definitions/coreSchema"
+        }
     ]
 }
