@@ -1,5 +1,6 @@
 {
-    "$schema": "http://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-mwon.json",  
+    "$schema": "http://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-mwon.json", 
+    "type": "object", 
     "required": [
         "a"
     ],
@@ -12,5 +13,6 @@
             "type": "array",
             "items": {"type":"string"}
         }
-    }
+    },
+    "additionalProperties": false
 }

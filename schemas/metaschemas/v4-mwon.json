@@ -9,6 +9,9 @@
             "properties": {
                 "properties": {},
                 "items": {},
+                "additionalProperties": {
+                    "type": "boolean"
+                },
                 "id": {
                     "type": "string"
                 },
@@ -53,33 +56,6 @@
                     "type": "string"
                 }
             },
-            "if": {
-                "properties": {
-                    "type": {
-                        "const": "array"
-                    }
-                }
-            },
-            "then": {
-                "required": [
-                    "items"
-                ],
-                "properties": {
-                    "items": {
-                        "required": [
-                            "type"
-                        ],
-                        "properties": {
-                            "type": {
-                                "enum": [
-                                    "string",
-                                    "integer"
-                                ]
-                            }
-                        }
-                    }
-                }
-            },
             "default": {}
         },
         "schemaLevel1": {
@@ -106,6 +82,33 @@
                     },
                     "default": {}
                 }
+            },
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "array"
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "items"
+                ],
+                "properties": {
+                    "items": {
+                        "required": [
+                            "type"
+                        ],
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "string",
+                                    "integer"
+                                ]
+                            }
+                        }
+                    }
+                }
             }
         },
         "schemaLevel2": {
@@ -120,6 +123,33 @@
                         {"$ref": "#/definitions/coreSchema"}
                     ],
                     "default": {}
+                }
+            },
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "array"
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "items"
+                ],
+                "properties": {
+                    "items": {
+                        "required": [
+                            "type"
+                        ],
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "string",
+                                    "integer"
+                                ]
+                            }
+                        }
+                    }
                 }
             }                
         },
