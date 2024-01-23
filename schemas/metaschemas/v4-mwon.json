@@ -37,8 +37,12 @@
                 "minLength": {
                     "$ref": "#/definitions/positiveIntegerDefault0"
                 },
-                "maxItems": { "$ref": "#/definitions/positiveInteger" },
-                "minItems": { "$ref": "#/definitions/positiveIntegerDefault0" },
+                "maxItems": {
+                    "$ref": "#/definitions/positiveInteger"
+                },
+                "minItems": {
+                    "$ref": "#/definitions/positiveIntegerDefault0"
+                },
                 "uniqueItems": {
                     "type": "boolean",
                     "default": false
@@ -63,7 +67,9 @@
                 }
             },
             "if": {
-                "required": ["type"],
+                "required": [
+                    "type"
+                ],
                 "properties": {
                     "type": {
                         "const": "array"
@@ -109,8 +115,12 @@
                     },
                     "items": {
                         "allOf": [
-                            {"$ref": "#/definitions/schemaLevel1"},
-                            {"$ref": "#/definitions/coreSchema"}
+                            {
+                                "$ref": "#/definitions/schemaLevel1"
+                            },
+                            {
+                                "$ref": "#/definitions/coreSchema"
+                            }
                         ],
                         "default": {}
                     },
@@ -126,12 +136,16 @@
                 },
                 "items": {
                     "allOf": [
-                        {"$ref": "#/definitions/schemaLevel1"},
-                        {"$ref": "#/definitions/coreSchema"}
+                        {
+                            "$ref": "#/definitions/schemaLevel1"
+                        },
+                        {
+                            "$ref": "#/definitions/coreSchema"
+                        }
                     ],
                     "default": {}
                 }
-            }                
+            }
         },
         "schemaArray1": {
             "type": "array",
@@ -202,7 +216,9 @@
             "$ref": "#/definitions/coreSchema"
         }
     ],
-    "required": ["additionalProperties"],
+    "required": [
+        "additionalProperties"
+    ],
     "properties": {
         "additionalProperties": {
             "type": "boolean",

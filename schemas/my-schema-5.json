@@ -28,10 +28,15 @@
         "integerArray": {
             "type": "array",
             "items": {"type": "integer", "maximum": 255, "minimum": 0},
-            "minI": 4,
+            "minItems": 4,
+            "maxItems": 4,
             "maxLength": 4,
-            "description": "An array of strings, each of which must be 'a','b' or 'c', for example."
+            "description": "An array of integers"
         },
+        "boolean": {
+            "type": "boolean",
+            "enum": ["true"]
+        }
     },
     "additionalProperties": false
 }
