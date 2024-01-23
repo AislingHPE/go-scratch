@@ -37,6 +37,12 @@
                 "minLength": {
                     "$ref": "#/definitions/positiveIntegerDefault0"
                 },
+                "maxItems": { "$ref": "#/definitions/positiveInteger" },
+                "minItems": { "$ref": "#/definitions/positiveIntegerDefault0" },
+                "uniqueItems": {
+                    "type": "boolean",
+                    "default": false
+                },
                 "pattern": {
                     "type": "string",
                     "format": "regex"
