@@ -5,7 +5,7 @@
     "definitions": {
         "coreSchema": {
             "type": "object",
-            "additionalProperties": true,
+            "additionalProperties": false,
             "properties": {
                 "properties": {},
                 "id": {
@@ -60,42 +60,24 @@
                 }
             },
             "then": {
-                "oneOf": [
-                    {
+                "required": [
+                    "items"
+                ],
+                "properties": {
+                    "items": {
                         "required": [
-                            "items"
+                            "type"
                         ],
                         "properties": {
-                            "items": {
-                                "required": [
-                                    "type"
-                                ],
-                                "properties": {
-                                    "type": {
-                                        "const": "string"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "required": [
-                            "items"
-                        ],
-                        "properties": {
-                            "items": {
-                                "required": [
-                                    "type"
-                                ],
-                                "properties": {
-                                    "type": {
-                                        "const": "integer"
-                                    }
-                                }
+                            "type": {
+                                "enum": [
+                                    "string",
+                                    "integer"
+                                ]
                             }
                         }
                     }
-                ]
+                }
             },
             "default": {}
         },
@@ -114,6 +96,13 @@
                             }
                         ]
                     },
+                    "items": {
+                        "allOf": [
+                            {"$ref": "#/definitions/schemaLevel1"},
+                            {"$ref": "#/definitions/coreSchema"}
+                        ],
+                        "default": {}
+                    },
                     "default": {}
                 }
             }
@@ -123,8 +112,15 @@
             "properties": {
                 "properties": {
                     "type": "null"
+                },
+                "items": {
+                    "allOf": [
+                        {"$ref": "#/definitions/schemaLevel1"},
+                        {"$ref": "#/definitions/coreSchema"}
+                    ],
+                    "default": {}
                 }
-            }
+            }                
         },
         "schemaArray1": {
             "type": "array",
