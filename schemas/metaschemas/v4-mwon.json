@@ -8,6 +8,7 @@
             "additionalProperties": false,
             "properties": {
                 "properties": {},
+                "items": {},
                 "id": {
                     "type": "string"
                 },
@@ -166,6 +167,7 @@
         },
         "simpleTypes": {
             "enum": [
+                "object",
                 "array",
                 "boolean",
                 "integer",
