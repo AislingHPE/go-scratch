@@ -5,9 +5,8 @@
     "definitions": {
         "allowedFields": {
             "type": "object",
-            "required": [ "additionalProperties" ],
             "additionalProperties": false,
-            "description": "Lists the allowed properties, and adds some extra restrictions to additionalProperties, dependencies and type. Also disallows maxProperties, minProperties, anyOf, allOf, oneOf, not and additionalItems. Additionally, additionalProperties must be specified as false.",
+            "description": "Lists the allowed properties, and adds some extra restrictions to additionalProperties, dependencies and type. Also disallows maxProperties, minProperties, anyOf, allOf, oneOf, not and additionalItems.",
             "properties": {
                 "properties": {},
                 "patternProperties": {},
@@ -31,10 +30,8 @@
                 "required": {},
                 "enum": {},
                 "format": {},
-                
                 "additionalProperties": {
-                    "type": "boolean",
-                    "const": false
+                    "type": "boolean"
                 },
                 "dependencies": {
                     "type": "object",
@@ -129,5 +126,12 @@
             "uniqueItems": true
         }
     },
-    "$ref": "#/definitions/schemaWrapper1"
+    "$ref": "#/definitions/schemaWrapper1",
+    "required": [ "additionalProperties" ],
+    "properties": {
+        "additionalProperties": {
+            "type": "boolean",
+            "const": false
+        }
+    }
 }
