@@ -3,6 +3,7 @@
     "id":  "http://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/my-schema-5.json",
     "type": "object", 
     "properties": {
+        "$schema": {"type": "string"},
         "integer": {
             "type":"integer",
             "default": 5,
