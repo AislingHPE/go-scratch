@@ -2,5 +2,7 @@
     "$schema":"http://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/my-schema-5.json",
     "integer": 3,
     "boolean": true,
-
+    "integerArray": [192,168,1,1],
+    "string": "#1240af",
+    "stringArray": ["a","c","b","a"]
 }
