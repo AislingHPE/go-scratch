@@ -1,5 +1,6 @@
 {
-    "$schema": "http://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-mwon-small.json", 
+    "$schema": "http://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-mwon-small.json",
+    "id":  "http://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/my-schema-5.json",
     "type": "object", 
     "properties": {
         "integer": {
@@ -30,7 +31,6 @@
             "items": {"type": "integer", "maximum": 255, "minimum": 0},
             "minItems": 4,
             "maxItems": 4,
-            "maxLength": 4,
             "description": "An array of integers"
         },
         "boolean": {
