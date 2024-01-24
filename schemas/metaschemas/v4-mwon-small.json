@@ -121,6 +121,12 @@
         },
         "simpleTypes": {
             "enum": [ "array", "boolean", "integer", "null", "object", "string" ]
+        },
+        "stringArray": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1,
+            "uniqueItems": true
         }
     },
     "$ref": "#/definitions/schemaWrapper1"
