@@ -36,7 +36,7 @@
         },
         "boolean": {
             "type": "boolean",
-            "enum": ["true"]
+            "enum": [true]
         }
     },
     "additionalProperties": false
