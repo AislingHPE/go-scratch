@@ -1,0 +1,127 @@
+{
+    "id": "https://raw.githubusercontent.com/AislingHPE/go-scratch/main/schemas/metaschemas/v4-mwon-small.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "Meta schema for genesis template schemas, emulating the features of Mark Watkins Object Notation",
+    "definitions": {
+        "allowedFields": {
+            "type": "object",
+            "required": [ "additionalProperties" ],
+            "additionalProperties": false,
+            "description": "Lists the allowed properties, and adds some extra restrictions to additionalProperties, dependencies and type. Also disallows maxProperties, minProperties, anyOf, allOf, oneOf, not and additionalItems. Additionally, additionalProperties must be specified as false.",
+            "properties": {
+                "properties": {},
+                "patternProperties": {},
+                "items": {},
+                "id": {},
+                "$schema": {},
+                "title": {},
+                "description": {},
+                "default": {},
+                "multipleOf": {},
+                "maximum": {},
+                "exclusiveMaximum": {},
+                "minimum": {},
+                "exclusiveMinimum": {},
+                "maxLength": {},
+                "minLength": {},
+                "maxItems": {},
+                "minItems": {},
+                "pattern": {},
+                "uniqueItems": {},
+                "required": {},
+                "enum": {},
+                "format": {},
+                
+                "additionalProperties": {
+                    "type": "boolean",
+                    "const": false
+                },
+                "dependencies": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/stringArray" 
+                    }
+                },
+                "type": {
+                    "$ref": "#/definitions/simpleTypes"
+                }
+            },
+            "if": {
+                "required": [ "type" ],
+                "properties": {
+                    "type": {"const": "array"}
+                }
+            },
+            "then": {
+                "required": [ "items" ],
+                "properties": {
+                    "items": {
+                        "required": [ "type" ],
+                        "properties": {
+                            "type": {
+                                "enum": [ "string", "integer" ]
+                            }
+                        }
+                    }
+                }
+            },
+            "default": {}
+        },
+        "schemaLevel1": {
+            "type": "object",
+            "properties": {
+                "properties": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/schemaWrapper2"
+                    },
+                    "default": {}
+                },
+                "patternProperties": {
+                    "type": "object",
+                    "additionalProperties": { 
+                        "$ref": "#/definitions/schemaWrapper2"
+                    },
+                    "default": {}
+                },
+                "items": {
+                    "$ref": "#/definitions/schemaWrapper1",
+                    "default": {}
+                }
+            }
+        },
+        "schemaLevel2": {
+            "type": "object",
+            "properties": {
+                "properties": {
+                    "type": "null"
+                },
+                "patternProperties": {
+                    "type": "null"
+                },
+                "items": {
+                    "$ref": "#/definitions/schemaWrapper2",
+                    "default": {}
+                }
+            }
+        },
+        "schemaWrapper1": {
+            "allOf": [
+                { "$ref": "#/definitions/schemaLevel1" },
+                { "$ref": "#/definitions/allowedFields" },
+                { "$ref": "http://json-schema.org/draft-04/schema#" }
+            ]
+        },
+        "schemaWrapper2": {
+            "allOf": [
+                { "$ref": "#/definitions/schemaLevel2" },
+                { "$ref": "#/definitions/allowedFields" },
+                { "$ref": "http://json-schema.org/draft-04/schema#" }
+            ]
+        },
+        "simpleTypes": {
+            "enum": [ "array", "boolean", "integer", "null", "object", "string" ]
+        }
+    },
+    "$ref": "#/definitions/schemaWrapper1"
+}
